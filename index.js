@@ -14,10 +14,15 @@ app.get('/', (req, res) => {
     res.render('validate_form')
 })
 
+
 const validId = require('./validate')
 
 app.post('/validate', encodeUrl, (req, res) => {
-  res.send(validId.idCode(req.body.id_code))
+  res.render('validate_result', validId.idInfo(req.body.id_code))
+})
+
+app.post('/validate', encodeUrl, (req, res) => {
+  res.send(validId.idInfo(req.body.id_code))
 })
 
 app.listen(3000, () => {

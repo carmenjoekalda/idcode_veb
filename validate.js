@@ -1,198 +1,139 @@
-// function 
-function idCode(id_code){ 
-    let id = id_code.toString()
-    function customerGender(id){
-        if (id.length === 11){
-            // returns the gender
-            let gender
-            if (id[0] % 2 === 0){
-                gender = 'female'
-                return gender
-            } else{
-                gender = 'male'
-                return gender
-            } 
-        } else {
-            return 'Something went wrong'
-        } 
-    }
-
-    function customerBirthyear(id){
-        if (customerGender != 'Something went wrong'){
-            // returns the birthyear
-            let birthyear = id.slice(1, 3);
-            return birthyear
-        } else {
-            return 'Something went wrong'
-        } 
-    } 
-
-    function customerBirthmonth(id){
-        if (customerGender != 'Something went wrong'){
-            // returns the birthmonth
-            let birthmonth = id.slice(3, 5);
-            if (birthmonth === "01"){
-                birthmonth = "January"
-            } 
-            else if (birthmonth === "02"){
-                birthmonth = "February"
-            }
-            else if (birthmonth === "03"){
-                birthmonth = "March"
-            }
-            else if (birthmonth === "04"){
-                birthmonth = "April"
-            }
-            else if (birthmonth === "05"){
-                birthmonth = "May"
-            }
-            else if (birthmonth === "06"){
-                birthmonth = "June"
-            }
-            else if (birthmonth === "07"){
-                birthmonth = "July"
-            }
-            else if (birthmonth === "08"){
-                birthmonth = "Ausgust"
-            }
-            else if (birthmonth === "09"){
-                birthmonth = "September"
-            }
-            else if (birthmonth === "10"){
-                birthmonth = "October"
-            }
-            else if (birthmonth === "11"){
-                birthmonth = "November"
-            }
-            else if (birthmonth === "12"){
-                birthmonth = "December"
-            }
-            return birthmonth
-        } 
-        else {
-            return 'Something went wrong'
-        } 
-    }
-
-    function customerBirthday(id){
-        if (customerGender != 'Something went wrong'){
-            // returns the birthday
-            birthday = id.slice(5, 7);
-            return birthday
-        } else {
-            return 'Something went wrong'
-        } 
-    } 
-
-    function customerBirthplace(id){
-        if (customerGender != 'Something went wrong'){
-            // returns the birthplace
-            birthplace = id.slice(7, 10); 
-            if (birthplace < 11){
-                return "Kuressaare haigla"
-            } 
-            else if (birthplace < 20){
-                return "Tartu Ülikooli Naistekliinik"
-            }
-            else if (birthplace < 151){
-                return "Ida-Tallinna keskhaigla or Pelgulinna sünnitusmaja"
-            } 
-            else if (birthplace < 161){
-                return "Keila haigla"
-            } 
-            else if (birthplace < 221){
-                return "Rapla haigla, Loksa haigla or Hiimunaa haigla (Kärdla)"
-            } 
-            else if (birthplace < 271){
-                return "Ida-Viru keskhaigla (Kohtla-Järve, endine Jõhvi)"
-            }
-            else if (birthplace < 371){
-                return "Maarjamõisa kliinikum (Tartu) or Jõgeva haigla"
-            } 
-            else if (birthplace < 421){
-                return "Narva haigla"
-            } 
-            else if (birthplace < 471){
-                return "Pärnu haigla"
-            } 
-            else if (birthplace < 491){
-                return "Haapsalu haigla"
-            } 
-            else if (birthplace < 520){
-                return "Järvamaa haigla (Paide)"
-            } 
-            else if (birthplace < 571){
-                return "Rakvere haigla or Tapa haigla"
-            } 
-            else if (birthplace < 601){
-                return "Valga haigla"
-            } 
-            else if (birthplace < 651){
-                return "Viljandi haigla"
-            } 
-            else if (birthplace < 701){
-                return "Lõuna-Eesti haigla (Võru) or Põlva haigla"
-            } 
-        } else {
-            return 'Something went wrong'
-        } 
-    } 
-
-    function customerOrder(id){
-        if (customerGender != 'Something went wrong'){ 
-            // returns the order number
-        birthorder = id.slice(9, 10);
-            return birthorder
-        } else {
-            return 'Something went wrong'
-        }
-    }
-
-    function customerControlcode(id){
-        if (customerGender != 'Something went wrong'){
-            // returns the idcode control code
-            birthControlcode = id.slice(10, 11);
-            const first_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1];
-            const second_array = [3, 4, 5, 6, 7, 8, 9, 1, 2, 3];
-            let id_array = []
-            for (let i = 0; i < 10; i++){
-                id_array.push(Number(id[i]));
-            }
-            let control = 0
-            for (let i = 0; i < 10; i++){
-                control += id_array[i] * second_array[i];  
-            } 
-            if (control % 11 === 10) {
-                control = 0;
-                for (let i = 0; i < 10; i++){
-                    control += id_array[i] * second_array[i];  
-                } 
-                return control % 11;
-        } else {
-            return control % 11;
-        } 
-    }  
-    }
-    let gender = customerGender(id)
-    let birthyear = customerBirthyear(id)
-    /*let birthmonth = customerBirthmonth(id)
-    let birthday = customerBirthday(id)
-    let birthplace = customerBirthplace(id)
-    let birthorder = customerOrder(id)
-    let control = customerOrder(id)
-    */
-
-    return func = `The customer is a ${gender} they were born in das aasta ${birthyear} `  
-    //console.log('The customer is a ' + (customerGender(id)) + '.')
-    //console.log("They were born in the year '" + (customerBirthyear(id)) + '.')
-    //console.log('They were born in ' + (customerBirthmonth(id)) + '.')
-    //console.log('Their birthdate is ' + (customerBirthday(id)) + '.')
-    //console.log('They were born in ' + (customerBirthplace(id)) + '.')
-    //console.log('They were ' + (customerOrder(id)) + '. person from their gender to be born on that day')
-    //console.log('The control number of their id-code is ' + (customerControlcode(id)) + '.')
-    return returnfunc
+const sexControl = (sex) => {
+	if (sex % 2 != 0) {
+		return 'mees'
+	} else {
+		return 'naine'
+	}
 }
-console.log(idCode(50609212790))
-module.exports ={
-    idCode
-} 
+
+const fullYear = (sex, year) => {
+	if(sex == 1 || sex == 2) {
+		return '18' + year
+	} else if(sex == 3 || sex == 4) {
+		return '19' + year
+	} else if(sex == 5 || sex == 6) {
+		return '20' + year
+	} else if(sex == 7 || sex == 8) {
+		return '21' + year
+	}
+}
+
+const birthdayDescription = (sex, year, month, day) => {
+	const birthday = new Date(Date.UTC(parseInt(year), parseInt(month-1), parseInt(day), 0, 0, 0));
+	const birthdayYear = birthday.toLocaleString('et-EE',  { year: 'numeric'})
+	const birthdayMonth = birthday.toLocaleString('et-EE',  { month: 'long' })
+	const birthdayDay = birthday.toLocaleString('et-EE',  { day: 'numeric'})
+	return `${birthdayDay}. ${birthdayMonth}${birthdayMonth == 'mai' || birthdayMonth == 'juuni' || birthdayYear == 'juuli' ? 'l' : 'il'} ${birthdayYear}. aastal`
+}
+
+const birthayPlaceData = (addInfo, year, sex) => {
+	let birthayPlaceData
+	let orderNumber
+	addInfo = parseInt(addInfo)
+	if(parseInt(fullYear(sex, year)) < 2013) {
+		if (addInfo >= 1 && addInfo <= 10) birthayPlaceData = 'Kuressaare haigla'
+		else if (addInfo >= 11 && addInfo <= 19) birthayPlaceData = 'Tartu Ülikooli Naistekliinik'
+		else if (addInfo >= 21 && addInfo <= 150) birthayPlaceData = 'Ida-Tallinna keskhaigla, Pelgulinna sünnitusmaja (Tallinn)'
+		else if (addInfo >= 151 && addInfo <= 160) birthayPlaceData = 'Keila haigla'
+		else if (addInfo >= 161 && addInfo <= 220) birthayPlaceData = 'Rapla haigla, Loksa haigla, Hiiumaa haigla (Kärdla)'
+		else if (addInfo >= 221 && addInfo <= 270) birthayPlaceData = 'Ida-Viru keskhaigla (Kohtla-Järve, endine Jõhvi)'
+		else if (addInfo >= 271 && addInfo <= 370) birthayPlaceData = 'Maarjamõisa kliinikum (Tartu), Jõgeva haigla'
+		else if (addInfo >= 371 && addInfo <= 420) birthayPlaceData = 'Narva haigla'
+		else if (addInfo >= 421 && addInfo <= 470) birthayPlaceData = 'Pärnu haigla'
+		else if (addInfo >= 471 && addInfo <= 490) birthayPlaceData = 'Haapsalu haigla'
+		else if (addInfo >= 491 && addInfo <= 520) birthayPlaceData = 'Järvamaa haigla (Paide)'
+		else if (addInfo >= 521 && addInfo <= 570) birthayPlaceData = 'Rakvere haigla, Tapa haigla'
+		else if (addInfo >= 571 && addInfo <= 600) birthayPlaceData = 'Valga haigla'
+		else if (addInfo >= 601 && addInfo <= 650) birthayPlaceData = 'Viljandi haigla'
+		else if (addInfo >= 651 && addInfo <= 700) birthayPlaceData = 'Lõuna-Eesti haigla (Võru), Põlva haigla'	
+		orderNumber = parseInt(addInfo.toString().slice(-1))
+	} else {
+		orderNumber = parseInt(addInfo)
+	}
+	return {
+			place: birthayPlaceData,
+			order: orderNumber
+			}
+}
+
+
+
+const control = (idcode) => {
+    const weight1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1];
+    const weight2 = [3, 4, 5, 6, 7, 8, 9, 1, 2, 3];
+
+    // Compute controlSum using weight1
+    let controlSum = 0;
+    for(let i = 0; i < idcode.length-1; i++){
+        controlSum += parseInt(idcode[i]) * weight1[i];
+    }
+   
+    if(controlSum % 11 !== 10) {
+        return controlSum % 11;
+    }
+
+    // If previous check failed, compute controlSum using weight2
+    controlSum = 0;
+    for(let i = 0; i < idcode.length-1; i++){
+        controlSum += parseInt(idcode[i]) * weight2[i];
+    }
+   
+    return controlSum % 11 !== 10 ? controlSum % 11 : 0;
+}
+
+const idInfo = (idcode) => {
+	idcode = idcode.toString()
+	let sex = idcode[0]
+	let year = idcode.slice(1, 3)
+	let month = idcode.slice(3, 5)
+	let day = idcode.slice(5, 7)
+	let addInfo = idcode.slice(7, 10)
+	let idControl = idcode.slice(-1)
+
+	let birthdayString = birthdayDescription(sex, fullYear(sex, year), month, day)
+	let placeAndOrder = birthayPlaceData(addInfo, year, sex)
+
+	const resultinfo ={
+		idcode: idcode,
+		sex_description: sexControl(sex),
+		sex_number: sex,
+		birthdayString: birthdayString,
+		year: year,
+		month: month,
+		day: day,
+		register_place: parseInt(fullYear(sex, year)) < 2013 ? placeAndOrder.place + 'osakonnas (...' + addInfo.slice(0, 2) + '...)' : ' Eestis',
+		order_number: placeAndOrder.order,
+		sex_control: sexControl(sex) == 'naine' ? sexControl(sex).slice(0, -2)+'s' : sexControl(sex),
+		addition_info: addInfo,
+		idcode_control_number: control(idcode),
+		idControl: idControl
+	} 
+	return resultinfo
+
+
+
+	return `
+	  <head>
+	    <title>Isikoodi valideerimine</title>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	  </head>
+	  <body>
+	    <div class="container">
+	      <h2>Isikoodi valideerimine</h2>
+
+	Isik isikukoodiga ${idcode} on ${sexControl(sex)} (${sex}...), kes on sündinud ${birthdayString} (...${year}${month}${day}...). Tema isikukood registreeriti ${parseInt(fullYear(sex, year)) < 2013 ? placeAndOrder.place+' osakonnas (...' + addInfo.slice(0, 2)+ '...)' : ' Eestis'} ja sel päeval oli ta ${placeAndOrder.order}. ${sexControl(sex) == 'naine' ? sexControl(sex).slice(0,-2)+'s' : sexControl(sex)}soost isik (...${addInfo}.). Isikukoodi kontrollnumbriks on ${control(idcode)} (...${idControl}).
+	<br>
+	<br>
+	<a href="/">Valideeri uus isikukood</a>
+	</div>
+  </body>
+</html>
+	`
+}
+
+
+module.exports = {
+	idInfo
+}
