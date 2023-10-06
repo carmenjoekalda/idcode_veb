@@ -1,6 +1,7 @@
 {
-  "name": "idcode_veb",
+  "name": "idcode_web",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -8,9 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ejs": "^3.1.9",
-    "express": "^4.18.2",
-    "prompt-sync": "^4.2.0"
-  },
-  "description": ""
+    "express": "^4.18.2"
+  }
 }
